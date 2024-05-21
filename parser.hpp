@@ -1,107 +1,122 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Parser
-{
+#define FSM "FSM"
+#define VAR "VAR"
+#define STATES "STATES"
+#define TRANSITIONS "TRANSITIONS"
+
+class Parser {
 private:
-    string machinename;
-    vector<string> vars;
-    map<string, vector<string>> states;
-    map<int, pair<string, string>> transitions;
+  vector<string> lines;
+  vector<vector<string>> line_tokens;
+  std::array<string, 4> section_names = {FSM, VAR, STATES, TRANSITIONS};
+  map<string, vector<vector<string>>::iterator> section;
+  string machinename;
+  vector<string> vars;
+  map<string, vector<string>> states;
+  map<int, pair<string, string>> transitions;
 
-    vector<string> read(const string &filename)
-    {
-        vector<string> lines;
-        ifstream file(filename);
-        string line;
+  // Reads file and returns vector of lines
+  void read(const string &filename) {
+    ifstream file(filename);
+    string line;
 
-        while (getline(file, line, '\n'))
-        {
-            if (line.empty())
-            {
-                continue;
-            }
-            lines.push_back(line);
-        }
-        return lines;
+    while (getline(file, line, '\n')) {
+      if (line.empty()) {
+        continue;
+      }
+      lines.push_back(line);
     }
-    vector<string> tokenize(string &line)
-    {
-        vector<string> tokens;
-        const char *delim = "[,];() >:";
-        const char *print_delim = "()";
-        for (auto token = strtok(line.data(), delim);
-             token != NULL;
-             token = strtok(NULL, strcmp(token, "PRINT") ? delim : print_delim))
-        {
-            tokens.emplace_back(token);
-        }
-        return tokens;
-    }
-    vector<vector<string>> parse(vector<string> &lines)
-    {
-        vector<vector<string>> parsed;
-        for (auto &line : lines)
-        {
-            vector<string> tokens = tokenize(line);
-            if (!tokens.empty())
-            {
-                parsed.push_back(tokens);
-            }
-        }
-        return parsed;
-    }
-    void parseMachineName(const vector<string> tokens)
-    {
-        if (tokens.size() < 2)
-        {
-            throw runtime_error("Machine name not found");
-        }
-        machinename = tokens[1];
-    }
-    void parseVars(const vector<string> tokens)
-    {
-        if (tokens.size() < 2)
-        {
-            throw runtime_error("Variable not found");
-        }
-        for (size_t i = 1; i < tokens.size(); i++)
-        {
-            vars.push_back(tokens[i]);
-        }
-    }
-    void parseState(const vector<string> &tokens)
-    {
-        if (tokens.size() < 2)
-        {
-            throw runtime_error("State not found");
-        }
-        states[tokens[0]] = vector<string>(tokens.begin() + 1, tokens.end());
-    }
-    void parseTransition(const vector<string> &tokens)
-    {
-        if (tokens.size() < 3)
-        {
-            throw runtime_error("Transition not found");
-        }
-        transitions[stoi(tokens[0])] = {tokens[1], tokens[2]};
-    }
+  }
 
-    string getMachineName() const { return machinename; }
-    vector<string> getVariables() const { return vars; }
-    map<string, vector<string>> getStates() const { return states; }
-    map<int, pair<string, string>> getTransitions() const { return transitions; }
+  vector<string> tokenize(string &line) {
+    vector<string> tokens;
+    const char *delim = "[,];() >:=";
+    const char *print_delim = "()";
+    for (auto token = strtok(line.data(), delim); token != NULL;
+         token = strtok(NULL, strcmp(token, "PRINT") ? delim : print_delim)) {
+      tokens.emplace_back(token);
+    }
+    return tokens;
+  }
+
+  void tokenize() {
+    line_tokens.reserve(lines.size()); // This is essential to avoid
+    // reallocation of array and potential invalidation of iterators
+    for (auto &line : lines) {
+      auto tokens = tokenize(line);
+      if (tokens.empty()) {
+        continue;
+      }
+      line_tokens.push_back(tokens);
+      if (find(section_names.begin(), section_names.end(), tokens[0]) !=
+          section_names.end()) {
+        section[tokens[0]] = line_tokens.end() - 1;
+      }
+    }
+  }
+
+  void parseMachineName() {
+    auto &MachineNameTokens = *section[FSM];
+    if (MachineNameTokens.size() < 2) {
+      throw runtime_error("Machine name not found");
+    }
+    machinename = MachineNameTokens[1];
+  }
+
+  void parseVars() {
+    auto VarTokens = *section[VAR];
+    if (VarTokens.size() < 2) {
+      throw runtime_error("Variable not found");
+    }
+    for (size_t i = 1; i < VarTokens.size(); i++) {
+      vars.push_back(VarTokens[i]);
+    }
+  }
+
+  void parseState(vector<string> &line) {
+    for (size_t i = 1; i < line.size(); i++) {
+      states[line[0]].push_back(line[i]);
+    }
+  }
+
+  void parseStates() {
+    for (auto it = section[STATES] + 1; it != section[TRANSITIONS]; it++) {
+      parseState(*it);
+    }
+  }
+
+  void parseTransition(const vector<string> &line) {
+    if (line.size() != 3) {
+      throw runtime_error("Transition not found");
+    }
+    transitions[stoi(line[0])] = {line[1], line[2]};
+  }
+
+  void parseTransitions() {
+    for (auto it = section[TRANSITIONS] + 1; it != line_tokens.end(); it++) {
+      parseTransition(*it);
+    }
+  }
+
+  void parse() {
+    parseMachineName();
+    parseVars();
+    parseStates();
+    parseTransitions();
+  }
 
 public:
-    Parser(string filename = "fsm.fsm")
-    {
-        vector<string> lines = read(filename);
-        auto parsed = parse(lines);
-        parseMachineName(parsed[0]);
-        parseVars(parsed[1]);
-        for (size_t i = 2; i < parsed.size(); i++)
-        {
-            states[parsed[i][0]] = vector<string>(parsed[i].begin() + 1, parsed[i].end());
-        }
-    }
+  Parser(string filename = "fsm.fsm") {
+    read(filename);
+    tokenize();
+    parse();
+  }
+  const string &getMachineName() const { return machinename; }
+  const vector<string> &getVariables() const { return vars; }
+  const map<string, vector<string>> &getStates() const { return states; }
+  const map<int, pair<string, string>> &getTransitions() const {
+    return transitions;
+  }
 };
