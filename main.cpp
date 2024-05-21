@@ -1,6 +1,8 @@
 #include <iostream>
+#include "parser.hpp"
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
+int main()
+{
+    Parser parser;
     return 0;
 }

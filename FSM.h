@@ -8,20 +8,19 @@
 #include "map"
 using namespace std;
 
-class FSM {
-    std::string name;
-    std::map<std::string, int> variables;
-    std::map<std::string, State*> states;
-    State* currentState;
+class FSM
+{
+    string name;
+    map<string, int> variables;
+    map<string, State *> states;
+    State *currentState;
 
 public:
-    FSM(std::string name);
-    void addVariable(std::string name, int value);
-    void addState(State* state);
-    void setState(std::string stateName);
-    void handleInput(std::string input);
+    FSM(string name);
+    void addVariable(string name, int value);
+    void addState(State *state);
+    void setState(string stateName);
+    void handleInput(string input);
 };
 
-
-
-#endif //FSM_FSM_H
+#endif // FSM_FSM_H
