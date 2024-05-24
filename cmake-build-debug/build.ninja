@@ -56,6 +56,90 @@ build CMakeFiles\FSM.dir\main.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar
   TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
   TARGET_PDB = FSM.pdb
 
+build CMakeFiles\FSM.dir\FSM.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\FSM.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
+build CMakeFiles\FSM.dir\Command.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\Command.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
+build CMakeFiles\FSM.dir\StateFactory.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\StateFactory.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
+build CMakeFiles\FSM.dir\ConcreteState.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\ConcreteState.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
+build CMakeFiles\FSM.dir\State.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\State.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
+build CMakeFiles\FSM.dir\PrintCommand.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\PrintCommand.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
+build CMakeFiles\FSM.dir\EndCommand.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\EndCommand.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
+build CMakeFiles\FSM.dir\JumpCommand.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\JumpCommand.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
+build CMakeFiles\FSM.dir\TransitionTable.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\TransitionTable.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
+build CMakeFiles\FSM.dir\Parameters.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\Parameters.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
+build CMakeFiles\FSM.dir\WaitForInputCommand.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\WaitForInputCommand.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
+build CMakeFiles\FSM.dir\IncrementCommand.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar\CLionProjects\FSM\IncrementCommand.cpp || cmake_object_order_depends_target_FSM
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\FSM.dir
+  OBJECT_FILE_DIR = CMakeFiles\FSM.dir
+  TARGET_COMPILE_PDB = CMakeFiles\FSM.dir\
+  TARGET_PDB = FSM.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target FSM
@@ -64,7 +148,7 @@ build CMakeFiles\FSM.dir\main.cpp.obj: CXX_COMPILER__FSM_Debug C$:\Users\Mokhtar
 #############################################
 # Link the executable FSM.exe
 
-build FSM.exe: CXX_EXECUTABLE_LINKER__FSM_Debug CMakeFiles\FSM.dir\main.cpp.obj
+build FSM.exe: CXX_EXECUTABLE_LINKER__FSM_Debug CMakeFiles\FSM.dir\main.cpp.obj CMakeFiles\FSM.dir\FSM.cpp.obj CMakeFiles\FSM.dir\Command.cpp.obj CMakeFiles\FSM.dir\StateFactory.cpp.obj CMakeFiles\FSM.dir\ConcreteState.cpp.obj CMakeFiles\FSM.dir\State.cpp.obj CMakeFiles\FSM.dir\PrintCommand.cpp.obj CMakeFiles\FSM.dir\EndCommand.cpp.obj CMakeFiles\FSM.dir\JumpCommand.cpp.obj CMakeFiles\FSM.dir\TransitionTable.cpp.obj CMakeFiles\FSM.dir\Parameters.cpp.obj CMakeFiles\FSM.dir\WaitForInputCommand.cpp.obj CMakeFiles\FSM.dir\IncrementCommand.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi
   LINK_FLAGS = /machine:X86 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
