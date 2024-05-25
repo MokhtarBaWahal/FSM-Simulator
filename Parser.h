@@ -147,6 +147,7 @@ public:
       auto var = action;
       auto op = *it;
       while (++it != end) {
+        std::cout << *it << std::endl;
         values.push_back(*it);
       }
       return new IncrementCommand(var, values, [op](int a, int b) {
@@ -204,8 +205,6 @@ public:
     setVariables(fsm);
     setStates(fsm);
     setTransitions(fsm);
-    printStates();
-    printTransitions();
   }
   const string &getMachineName() const { return machinename; }
   const vector<string> &getVariables() const { return vars; }

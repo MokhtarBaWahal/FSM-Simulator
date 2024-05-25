@@ -15,6 +15,8 @@ private:
   int getVal(FSM *fsm, const std::string &varName) {
     if (fsm->getParameters().exists(varName)) {
       return fsm->getParameters().get<int>(varName);
+    } else if (isdigit(varName[0])) {
+      return std::stoi(varName);
     } else {
       throw std::runtime_error("Variable does not exist: " + varName);
     }

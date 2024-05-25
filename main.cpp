@@ -11,6 +11,7 @@ int main() {
   Parser parser;
   FSM *fsm1 = new FSM();
   parser.setFSM(fsm1);
+  fsm1->execute();
   /* Parser prs; */
   /* FSM fsm1; */
   /* prs.setMachineName(&fsm1); */
