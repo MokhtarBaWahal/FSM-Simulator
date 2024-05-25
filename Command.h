@@ -1,11 +1,9 @@
 // Command.h
-#include "FSM.h"
 #pragma once
+#include "FSM.h"
 
 class Command {
 public:
-    virtual ~Command() {}
-    virtual void execute(FSM* fsm) = 0;
+  virtual ~Command() {}
+  virtual void execute(FSM *fsm) = 0;
 };
-
-
