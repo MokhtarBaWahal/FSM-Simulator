@@ -131,7 +131,7 @@ public:
     const auto action = *action_iter;
     auto it = next(action_iter);
     if (action == "PRINT") {
-      return new PrintCommand(*it + '\n');
+      return new PrintCommand(*it);
     }
     if (action == "JMP" || action == "JMP0") {
       return new JumpCommand(*it);

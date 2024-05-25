@@ -29,7 +29,6 @@ public:
   void addState(State *state) {
     states.emplace_back(state);
     if (currentState == nullptr) {
-      std::cout << state->getName() << " set as start state!\n";
       currentState = state;
       startStateName = state->getName();
     }

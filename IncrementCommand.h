@@ -35,8 +35,6 @@ public:
       }
       int result = std::accumulate(vals.begin(), vals.end(), 0, operation);
       fsm->getParameters().set(variableName, result);
-      std::cout << "new result for " << variableName << ": " << result
-                << std::endl;
     } else {
       throw std::runtime_error("Variable does not exist: " + variableName);
     }
