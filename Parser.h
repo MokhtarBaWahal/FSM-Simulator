@@ -131,7 +131,7 @@ public:
     const auto action = *action_iter;
     auto it = next(action_iter);
     if (action == "PRINT") {
-      return new PrintCommand(*it);
+      return new PrintCommand(*it + '\n');
     }
     if (action == "JMP" || action == "JMP0") {
       return new JumpCommand(*it);
@@ -147,7 +147,6 @@ public:
       auto var = action;
       auto op = *it;
       while (++it != end) {
-        std::cout << *it << std::endl;
         values.push_back(*it);
       }
       return new IncrementCommand(var, values, [op](int a, int b) {
